@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Random No. Guessing Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <label for="text1">Enter a number between 1 and 10</label><br />
+    <input type="text" id="text1" placeholder="Your guess..." />
+    <button id="button1">Submit</button>
+  </div>
+  <script>
+    document.getElementById("button1").onclick = function () {
+      const userAnswer = parseInt(document.getElementById("text1").value);
+      const answer = Math.floor(Math.random() * 10) + 1;
+
+       // 🔐 Input validation
+  if (isNaN(userAnswer) || userAnswer < 1 || userAnswer > 10) {
+    alert("⚠️ Please enter a number between 1 and 10.");
+    return;
+  }
+
+  // ✅ Main game logic
+      if (userAnswer === answer) {
+        alert("🎉 User Has Won!! The number was " + answer);
+      } else {
+        alert("❌ Try Again! The number was " + answer);
+      }
+
+      // 🧹 Clear input after each guess
+  document.getElementById("text1").value = "";
+
+    };
+  </script>
+</body>
+</html>
+
+</html>
